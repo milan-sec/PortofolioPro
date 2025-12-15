@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Milan — Portfolio</title>
+  <meta name="description" content="Portfolio de Milan : projets cybersécurité, systèmes/réseaux et web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#top">Milan<span class="dot">.</span></a>
+
+      <nav class="navlinks" id="navlinks">
+        <a href="#projects">Projets</a>
+        <a href="#skills">Compétences</a>
+        <a href="#about">À propos</a>
+        <a href="#contact" class="pill">Contact</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <p class="kicker">Cybersécurité • Systèmes & Réseaux • Web</p>
+          <h1>Portfolio de <span class="accent">Milan</span></h1>
+          <p class="lead">
+            Je construis des projets concrets : monitoring serveur, durcissement, reverse proxy, apps web sécurisées.
+            Objectif : alternance en <b>cybersécurité / systèmes-réseaux</b>.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#projects">Voir mes projets</a>
+            <a class="btn ghost" href="https://github.com/milan-sec" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+
+          <div class="quick">
+            <div class="quick-card">
+              <div class="quick-title">Projet en ligne</div>
+              <a class="quick-link" target="_blank" rel="noreferrer"
+                 href="https://server-dashboard-iuy4.onrender.com">Dashboard Monitoring →</a>
+              <div class="quick-sub">Déployé sur Render</div>
+            </div>
+            <div class="quick-card">
+              <div class="quick-title">Repo GitHub</div>
+              <a class="quick-link" target="_blank" rel="noreferrer"
+                 href="https://github.com/milan-sec/server-dashboard">server-dashboard →</a>
+              <div class="quick-sub">Code + structure propre</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="glass">
+            <div class="glass-top">
+              <span class="badge">Disponible</span>
+              <span class="badge ghost">Alternance</span>
+            </div>
+            <div class="glass-body">
+              <p class="mono">$ whoami</p>
+              <p><b>Milan</b> — étudiant, passionné par la sécu, le réseau et le web.</p>
+              <p class="mono">$ focus</p>
+              <ul>
+                <li>Monitoring & durcissement Linux/Windows</li>
+                <li>Reverse proxy + HTTPS (certificats)</li>
+                <li>Apps web sécurisées + déploiement</li>
+              </ul>
+              <p class="mono">$ links</p>
+              <div class="chips">
+                <a class="chip" href="https://github.com/milan-sec" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="chip" href="#contact">Contact</a>
+              </div>
+            </div>
+          </div>
+          <div class="floating-note">
+            <span class="spark">✦</span> Projets “recruteur-friendly” : démos, README, déploiement.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projets</h2>
+          <p>5 projets solides pour alternance. Cliquez ici pour voir la démo / le code.</p>
+        </div>
+
+        <div class="filters">
+          <button class="filter active" data-filter="all">Tous</button>
+          <button class="filter" data-filter="security">Cybersécurité</button>
+          <button class="filter" data-filter="sys">Systèmes/Réseaux</button>
+          <button class="filter" data-filter="web">Web</button>
+        </div>
+
+        <div class="grid" id="projectGrid">
+
+          <!-- PROJET 1 (déjà en ligne) -->
+          <article class="card project" data-tags="sys web security">
+            <div class="card-top">
+              <h3>Dashboard de surveillance serveur</h3>
+              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Render</span>
+            </div>
+            <p>
+              Monitoring CPU/RAM/Disque + statut services + events sécurité, avec authentification.
+            </p>
+            <div class="actions">
+              <a class="btn small primary" href="https://server-dashboard-iuy4.onrender.com" target="_blank" rel="noreferrer">Démo</a>
+              <a class="btn small ghost" href="https://github.com/milan-sec/server-dashboard" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </article>
+
+          <!-- PROJET 2 -->
+          <article class="card project" data-tags="web security">
+            <div class="card-top">
+              <h3>Formulaire de contact sécurisé</h3>
+              <span class="tag">Web</span><span class="tag">Validation</span><span class="tag">Anti-spam</span>
+            </div>
+            <p>
+              Formulaire pro avec validation front/back, anti-spam (honeypot + rate-limit) et stockage BDD.
+            </p>
+            <div class="actions">
+              <a class="btn small ghost" href="#" title="À venir">Démo (à venir)</a>
+              <a class="btn small ghost" href="#" title="À venir">Code (à venir)</a>
+            </div>
+          </article>
+
+          <!-- PROJET 3 -->
+          <article class="card project" data-tags="security sys">
+            <div class="card-top">
+              <h3>Mini LAB cybersécurité (attaque → défense)</h3>
+              <span class="tag">VM</span><span class="tag">Hardening</span><span class="tag">Logs</span>
+            </div>
+            <p>
+              Setup de 2 VM, audit (scan), scénario d’attaque simple, puis durcissement (pare-feu, fail2ban, SSH keys).
+            </p>
+            <div class="actions">
+              <a class="btn small ghost" href="#" title="À venir">Rapport (à venir)</a>
+              <a class="btn small ghost" href="#" title="À venir">Code (à venir)</a>
+            </div>
+          </article>
+
+          <!-- PROJET 4 -->
+          <article class="card project" data-tags="web sys security">
+            <div class="card-top">
+              <h3>Gestion de matériel IT (CRUD + login)</h3>
+              <span class="tag">BDD</span><span class="tag">Auth</span><span class="tag">CRUD</span>
+            </div>
+            <p>
+              Application de gestion (inventaire), rôles, recherche, audit simple et bonnes pratiques (hash, sessions).
+            </p>
+            <div class="actions">
+              <a class="btn small ghost" href="#" title="À venir">Démo (à venir)</a>
+              <a class="btn small ghost" href="#" title="À venir">Code (à venir)</a>
+            </div>
+          </article>
+
+          <!-- PROJET 5 -->
+          <article class="card project" data-tags="web sys">
+            <div class="card-top">
+              <h3>Eco Dashboard (données capteurs + alertes)</h3>
+              <span class="tag">Data</span><span class="tag">Charts</span><span class="tag">CSV</span>
+            </div>
+            <p>
+              Dashboard de mesures (simulées ou capteurs), graphiques, seuils d’alerte et export CSV.
+            </p>
+            <div class="actions">
+              <a class="btn small ghost" href="#" title="À venir">Démo (à venir)</a>
+              <a class="btn small ghost" href="#" title="À venir">Code (à venir)</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Compétences</h2>
+          <p>Ce que je mets en pratique dans mes projets.</p>
+        </div>
+
+        <div class="skill-grid">
+          <div class="card">
+            <h3>Systèmes</h3>
+            <ul>
+              <li>Linux/Windows : services, permissions, logs</li>
+              <li>Monitoring : CPU/RAM/Disque, alertes</li>
+              <li>Durcissement : SSH, pare-feu, fail2ban</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Réseaux</h3>
+            <ul>
+              <li>Segmentation / cloisonnement</li>
+              <li>Reverse proxy</li>
+              <li>HTTPS & certificats</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Web</h3>
+            <ul>
+              <li>HTML/CSS/JS</li>
+              <li>Backend Python (Flask)</li>
+              <li>Bonnes pratiques sécurité (validation, sessions)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Outils</h3>
+            <ul>
+              <li>Git / GitHub</li>
+              <li>Déploiement : Render</li>
+              <li>Documentation : README, schémas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about">
+        <div class="about-left">
+          <h2>À propos</h2>
+          <p>
+            Je construis des projets orientés “terrain” pour prouver mes compétences en cyber et infra :
+            des démos en ligne, du code clean, et de la doc compréhensible.
+          </p>
+          <p class="soft">
+          </p>
+        </div>
+        <div class="about-right card">
+          <h3>Ce que j’apporte</h3>
+          <ul>
+            <li>Projets concrets + déploiements</li>
+            <li>Rigueur sécurité / bonnes pratiques</li>
+            <li>Capacité à apprendre vite et livrer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Vous pouvez me joindre directement ici.</p>
+        </div>
+
+        <div class="contact-grid">
+          <a class="card linkcard" href="mailto:obrsmilan@gmail.com">
+            <h3>Email</h3>
+            <p>obrsmilan@gmail.com</p>
+            <span class="arrow">→</span>
+          </a>
+
+          <a class="card linkcard" href="https://github.com/milan-sec" target="_blank" rel="noreferrer">
+            <h3>GitHub</h3>
+            <p>@milan-sec</p>
+            <span class="arrow">→</span>
+          </a>
+
+         <a class="card linkcard"
+   href="https://www.linkedin.com/in/milan-obradors-552194269/"
+   target="_blank" rel="noreferrer">
+  <h3>LinkedIn</h3>
+  <p>Milan Obradors</p>
+  <span class="arrow">→</span>
+</a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot">
+      <span>© <span id="year"></span> Milan</span>
+      <span class="soft">Fait en HTML/CSS/JS —</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
