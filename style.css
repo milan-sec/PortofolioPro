@@ -220,4 +220,47 @@ h1{font-size:48px;line-height:1.05;margin:0 0 12px}
   h1{font-size:38px}
   .quick{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
+
+  /* ===== Contact form ===== */
+#contactForm {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: inherit;
+}
+
+#contactForm textarea {
+  min-height: 130px;
+}
+
+#submitBtn {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#formStatus {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
 }
