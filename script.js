@@ -20,3 +20,51 @@ filters.forEach(btn => {
     });
   });
 });
+
+// ===== Secure Contact Form =====
+const API_URL = "https://contact-api-phf8.onrender.com/api/contact";
+
+const form = document.getElementById("contactForm");
+const statusEl = document.getElementById("formStatus");
+const btn = document.getElementById("submitBtn");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    btn.disabled = true;
+    statusEl.textContent = "Envoi...";
+
+    const payload = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      subject: document.getElementById("subject").value.trim(),
+      message: document.getElementById("message").value.trim(),
+      website: document.getElementById("website").value.trim(), // honeypot
+    };
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        statusEl.textContent = data.error || "Erreur lors de l’envoi.";
+        btn.disabled = false;
+        return;
+      }
+
+      statusEl.textContent = "Message envoyé ✅";
+      form.reset();
+    } catch (err) {
+      statusEl.textContent = "Serveur indisponible (Render peut être en veille).";
+    } finally {
+      btn.disabled = false;
+    }
+  });
+}
+
