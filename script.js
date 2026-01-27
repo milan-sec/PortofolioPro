@@ -21,16 +21,26 @@ filters.forEach(btn => {
   });
 });
 
-// ===== Secure Contact Form =====
+console.log("script.js chargé ✅");
+
 const API_URL = "https://contact-api-phf8.onrender.com/api/contact";
 
 const form = document.getElementById("contactForm");
 const statusEl = document.getElementById("formStatus");
 const btn = document.getElementById("submitBtn");
 
-if (form) {
+if (!form || !statusEl || !btn) {
+  console.log("Formulaire introuvable ❌");
+} else {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Validation navigateur
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      statusEl.textContent = "Remplis correctement les champs 👇";
+      return;
+    }
 
     btn.disabled = true;
     statusEl.textContent = "Envoi...";
@@ -40,7 +50,7 @@ if (form) {
       email: document.getElementById("email").value.trim(),
       subject: document.getElementById("subject").value.trim(),
       message: document.getElementById("message").value.trim(),
-      website: document.getElementById("website").value.trim(), // honeypot
+      website: document.getElementById("website").value.trim(),
     };
 
     try {
@@ -53,15 +63,19 @@ if (form) {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        statusEl.textContent = data.error || "Erreur lors de l’envoi.";
+        statusEl.textContent = data.error || "Erreur lors de l’envoi ❌";
         btn.disabled = false;
         return;
       }
 
       statusEl.textContent = "Message envoyé ✅";
       form.reset();
+      setTimeout(() => {
+        statusEl.textContent = "";
+      }, 6000);
     } catch (err) {
-      statusEl.textContent = "Serveur indisponible (Render peut être en veille).";
+      statusEl.textContent =
+        "Serveur indisponible (Render peut être en veille).";
     } finally {
       btn.disabled = false;
     }
