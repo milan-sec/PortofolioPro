@@ -82,3 +82,28 @@ if (!form || !statusEl || !btn) {
   });
 }
 
+// ===== Theme toggle (light/dark) =====
+const toggleBtn = document.getElementById("themeToggle");
+
+function setTheme(mode) {
+  document.body.classList.toggle("light", mode === "light");
+  if (toggleBtn) toggleBtn.textContent = (mode === "light") ? "🌙" : "☀️";
+  localStorage.setItem("theme", mode);
+}
+
+(function initTheme(){
+  const saved = localStorage.getItem("theme");
+  if (saved === "light" || saved === "dark") {
+    setTheme(saved);
+  } else {
+    setTheme("dark"); // default
+  }
+})();
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    const isLight = document.body.classList.contains("light");
+    setTheme(isLight ? "dark" : "light");
+  });
+}
+
