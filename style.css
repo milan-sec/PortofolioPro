@@ -348,112 +348,35 @@ body{
   box-sizing: border-box;
 }
 
-/* =========================
-   VARIABLES DE THÈME
-========================= */
+/* ===== MODE JOUR / NUIT ===== */
+
+/* variables par défaut (mode jour) */
 :root {
-  --bg: #ffffff;
-  --text: #111111;
-  --panel: #f3f4f6;
-  --accent: #2563eb;
-  --border: #e5e7eb;
+  --theme-bg: initial;
+  --theme-text: initial;
 }
 
+/* variables mode nuit */
 html.dark {
-  --bg: #0b0f19;
-  --text: #e6e6e6;
-  --panel: #111827;
-  --accent: #60a5fa;
-  --border: #1f2937;
+  --theme-bg: #0b0f19;
+  --theme-text: #e6e6e6;
 }
 
-/* =========================
-   BASE
-========================= */
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  transition: background 0.3s ease, color 0.3s ease;
+/* fond et texte globaux */
+html.dark body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
 }
 
-/* =========================
-   LAYOUT
-========================= */
-main,
-section {
-  background: var(--panel);
-  margin: 1.5rem auto;
-  padding: 2rem;
-  max-width: 1100px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
+/* blocs principaux (si présents) */
+html.dark main,
+html.dark section,
+html.dark .container,
+html.dark .card {
+  background-color: #111827;
+  color: var(--theme-text);
 }
 
-/* =========================
-   TITRES
-========================= */
-h1, h2, h3 {
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-
-/* =========================
-   LIENS
-========================= */
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   BOUTON TOGGLE
-========================= */
-#themeToggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--panel);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.5rem 0.8rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s, color 0.3s;
-}
-
-#themeToggle:hover {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-/* =========================
-   CARTES / BLOCS
-========================= */
-.card,
-.container,
-.box {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-/* =========================
-   FOOTER (si présent)
-========================= */
-footer {
-  text-align: center;
-  padding: 2rem;
-  color: var(--text);
-}
 
 
 
