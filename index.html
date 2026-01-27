@@ -293,5 +293,23 @@
   </footer>
 
   <script src="script.js"></script>
+  <section id="contact">
+  <h2>Contact</h2>
+
+  <form id="contactForm">
+    <input id="name" name="name" placeholder="Nom" required>
+    <input id="email" name="email" type="email" placeholder="Email" required>
+    <input id="subject" name="subject" placeholder="Sujet" required>
+    <textarea id="message" name="message" placeholder="Message" required></textarea>
+    
+    <div style="display:none;">
+      <input id="website" name="website" autocomplete="off">
+    </div>
+
+    <button id="submitBtn" type="submit">Envoyer</button>
+    <p id="formStatus"></p>
+  </form>
+</section>
+
 </body>
 </html>
