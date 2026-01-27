@@ -82,28 +82,22 @@ if (!form || !statusEl || !btn) {
   });
 }
 
-// ===== Theme toggle (light/dark) =====
-const toggleBtn = document.getElementById("themeToggle");
+const root = document.documentElement;
+const btn = document.getElementById("themeToggle");
 
-function setTheme(mode) {
-  document.body.classList.toggle("light", mode === "light");
-  if (toggleBtn) toggleBtn.textContent = (mode === "light") ? "🌙" : "☀️";
-  localStorage.setItem("theme", mode);
+console.log("JS chargé");
+
+btn.addEventListener("click", () => {
+  root.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    root.classList.contains("dark") ? "dark" : "light"
+  );
+});
+
+// restauration du thème
+if (localStorage.getItem("theme") === "dark") {
+  root.classList.add("dark");
 }
 
-(function initTheme(){
-  const saved = localStorage.getItem("theme");
-  if (saved === "light" || saved === "dark") {
-    setTheme(saved);
-  } else {
-    setTheme("dark"); // default
-  }
-})();
-
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    const isLight = document.body.classList.contains("light");
-    setTheme(isLight ? "dark" : "light");
-  });
-}
 
